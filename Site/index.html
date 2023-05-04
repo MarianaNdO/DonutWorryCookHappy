@@ -13,28 +13,44 @@
     <header>
         <nav class="navbar">
             <ul>
-                <li><a href="#header" class="botao">Home</a></li>
-                <li> <a href="#receitas" class="botao">Receitas</a></li>
-                <li> <a href="#quiz" class="botao">Quiz</a> </li>
-                <li> <a href="login.html" class="botao">Login</a></li>
+                <li><a href="#header"><button  class="botao" onclick="header">Home</button></a></li>
+                <li> <a href="#receitas"><Button class="botao">Receitas</Button></a></li>
+                <li> <a href="#quiz"><button class="botao" >Quiz</button></a> </li>
+                <li> <a href="login.html"> <button class="botao">Login</button></a></li>
             </ul>
+            <div class="logo" > <!-- logo daa navbar --></div>
         </nav>
 
         <!-- header a partir daqui-->
         <section id="header">
-            <div class="div-header"></div>
-
+            <div class="div-imagens"><!-- imagens da header"--> <img class="header-imagem" src="assets/img_home/z o e.jpg"> <img class="header-imagem" src="assets/img_home/download (3).jpg"> <img class="header-imagem" src="assets/img_home/ଘ( ິ•ᆺ• )ິଓ.jpg"> </div>
+            <div class="div-texto">O mundo precisa de mais coisas fofinhas, <br> e a sua cozinha pode ser o lugar perfeito <br> para começar!</div>
         </section>
-        
-
     </header>
 <main>
     <section id="receitas">
         <!--receitas a partir daqui-->
-        <div id="div-receitas"></div>
+        <div class="div-receitas">
+            <div class="div-rec-urso">
+                <!--background imagem logo-->
+            </div>
+
+            <div class="div-sal-doc">
+                <div class="doc1">
+                    <img src="assets/img_home/sopadearroz.svg" alt=""><br><button class="botao">Salgadas</button>
+                </div>
+                <div class="doc2">
+                    <button class="botao">Doces</button><br><img src="assets/img_home/biscoitinhos.svg" alt="">
+                </div>
+            </div>
+        </div>
+
     </section>
     <section id="quiz">
-        <div id="div-quiz"></div>
+        <div class="div-quiz">
+            QUIZ
+            <div class="div-questionario"></div>
+        </div>
         <!-- quiz a partir daqui-->
     </section>
 </main>
