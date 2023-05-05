@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Quicksand:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Fredoka%20One');
 
@@ -29,8 +30,8 @@ header {
     margin-left: 5%;
     width: 100%;
     border: 3%;
-    display: flex;
-    gap: 200px;
+    display: flex;                          
+    gap: 150px;
     list-style: none;
     
 }
@@ -39,11 +40,11 @@ header {
     width: 150px;
     height: 150px;
     display: flex;
-    margin-right: 5%;
+    margin-right: 4%;
     margin-top: 10px;
     background-image: url("Logo.svg");
     background-position: center;
-    background-size: 70%;
+    background-size: 100%;
     background-repeat: no-repeat;
 }
 
@@ -69,7 +70,6 @@ header {
     align-items: center;
     margin-top: 80px;
     margin-bottom: 50px;
-
 }
 
 .div-imagens .header-imagem {
@@ -142,14 +142,163 @@ header {
 }
 
 .div-quiz{
-    height: 300px;
+    margin-top: 6%;
+    height: 1600px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
+.div-quiz .titulo-quiz{
+    font-size: 64px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: fredoka one;
+    text-align: center;
+}
+
+.div-quiz .pergunta-quiz{
+    font-size: 40px;
+    color: #ffffff;
+    margin-top: 50px;
+    justify-content: space-evenly;
+    text-align: center;
 }
 
 .div-quiz .div-questionario{
-    width: 70%;
-    height: 200px;
-    border-radius: 30%;
+    width: 60%;
+    height: 700px;
+    border-radius: 63px;
     background-color: #CA9F7D;
+    display: flex;
+    margin: auto;
+    margin-top: 5%;
+    padding: 4%; 
+}
+
+.div-perguntas{
+    margin-top: 4%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #59423D;
+    font-size: 50px;
+    font-family: Amatic SC;
+}
+
+.div-perguntas input{
+    width: 90%;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    background-color:  #D9D9D9;
+    font-family: quicksand;
+    font-size: 20px;
+    display: flex;
+    text-indent: 2%;
+}
+
+.div-perguntas .botao {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    margin-top: 20px;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.div-resultado {
+    width: 100%;
+    height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.resultado-texto{
+    width: 50%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 40px;
+    font-family: Fredoka One;
+}
+.resultado-imagem{
+    display: flex;
+    width: 40%;
+    height: 400px;
+}
+
+.resultado-imagem img{
+    width: 400px;
+    height: 400px;
+}
+
+.div-footer{
+    width: 100%;
+    height: 400px;
+    background-color: #D49393;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+
+.titulo-footer{
+    width: 30%;
+    height: 100%;
+    color: white;
+    font-size: 28px;
+    font-family: fredoka one;
+}
+
+.texto-footer{
+    display: flex;
+    color: white;
+    font-size: 20px;
+    margin-top: 2%;
+    width: 40%;
+    text-align: justify;
+}
+.marcador{
+    color: #757575;
+    font-size: 20px;
+    font-weight: 100px;
+}
+
+li{
+    list-style: none;
+    font-style: none;
+}
+
+.navegacao ul li a{
+    list-style: none;
+    font-style: none;
+    font-size: 20px;
+    color: #ffffff;
+    flex-direction: column;
+    font-weight: 500px;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.navegacao ul li {
+    padding: 10px;
+}
+
+.navegacao {
+    display: flex;
+    flex-direction: column;
+}
+
+.novidades{
+    width: 30%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
 }

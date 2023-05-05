@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donut Worry, Cook Happy!</title> 
+    <title>Donut Worry, Cook Happy!</title>
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
@@ -13,57 +13,115 @@
     <header>
         <nav class="navbar">
             <ul>
-                <li><a href="#header"><button  class="botao" onclick="header">Home</button></a></li>
+                <li><a href="#header"><button class="botao" onclick="header">Home</button></a></li>
                 <li> <a href="#receitas"><Button class="botao">Receitas</Button></a></li>
-                <li> <a href="#quiz"><button class="botao" >Quiz</button></a> </li>
+                <li> <a href="#quiz"><button class="botao">Quiz</button></a> </li>
+                <li> <a href="#footer"> <button class="botao">Contato</button></a></li>
                 <li> <a href="login.html"> <button class="botao">Login</button></a></li>
             </ul>
-            <div class="logo" > <!-- logo daa navbar --></div>
+            <div class="logo"> <!-- logo daa navbar --></div>
         </nav>
 
         <!-- header a partir daqui-->
         <section id="header">
-            <div class="div-imagens"><!-- imagens da header"--> <img class="header-imagem" src="assets/img_home/z o e.jpg"> <img class="header-imagem" src="assets/img_home/download (3).jpg"> <img class="header-imagem" src="assets/img_home/ଘ( ິ•ᆺ• )ິଓ.jpg"> </div>
-            <div class="div-texto">O mundo precisa de mais coisas fofinhas, <br> e a sua cozinha pode ser o lugar perfeito <br> para começar!</div>
+            <div class="div-imagens"><!-- imagens da header"--> <img class="header-imagem"
+                    src="assets/img_home/z o e.jpg"> <img class="header-imagem" src="assets/img_home/download (3).jpg">
+                <img class="header-imagem" src="assets/img_home/ଘ( ິ•ᆺ• )ິଓ.jpg"> </div>
+            <div class="div-texto">O mundo precisa de mais coisas fofinhas, <br> e a sua cozinha pode ser o lugar
+                perfeito <br> para começar!</div>
         </section>
     </header>
-<main>
-    <section id="receitas">
-        <!--receitas a partir daqui-->
-        <div class="div-receitas">
-            <div class="div-rec-urso">
-                <!--background imagem logo-->
+    <main>
+        <section id="receitas">
+            <!--receitas a partir daqui-->
+            <div class="div-receitas">
+                <div class="div-rec-urso">
+                    <!--background imagem logo-->
+                </div>
+
+                <div class="div-sal-doc">
+                    <div class="doc1">
+                        <img src="assets/img_home/sopadearroz.svg" alt=""><br><a
+                            href="receitas/receitassalgadas.html"><button class="botao"> Salgadas</button> </a>
+                    </div>
+                    <div class="doc2">
+                        <a href="receitas/receitasdoces.html"><button class="botao">Doces</button> </a><br><img
+                            src="assets/img_home/biscoitinhos.svg" alt="">
+                    </div>
+                </div>
             </div>
 
-            <div class="div-sal-doc">
-                <div class="doc1">
-                    <img src="assets/img_home/sopadearroz.svg" alt=""><br><button class="botao">Salgadas</button>
+        </section>
+        <section id="quiz">
+            <!-- quiz a partir daqui-->
+            <div class="div-quiz">
+                <span class="titulo-quiz"> QUIZ </span> <span class="pergunta-quiz">Qual comida fofinha mais combina com
+                    você?</span>
+                <div class="div-questionario">
+                    <div class="div-perguntas">
+                        • Você prefere comida salgada ou doce?<br>
+                        <input type="text" class="input-quest1">
+                        • Animais selvagens ou domesticos?<br>
+                        <input type="text" class="input-quest2">
+                        • Restaurante ou café?
+                        <input type="text" class="input-quest3">
+                        • Você vai/gosta de academia?
+                        <input type="text" class="input-quest4">
+                        <button class="botao">Resultado</button>
+                    </div>
                 </div>
-                <div class="doc2">
-                    <button class="botao">Doces</button><br><img src="assets/img_home/biscoitinhos.svg" alt="">
+                <div class="div-resultado">
+                    <div id="resultado-tex" class="resultado-texto">
+                        Você combina com tananan nanana <br> tananana pontos blablabla 
+                    </div>
+                    <div id="resultado-img" class="resultado-imagem">
+                        <img src="./assets/img_home/quiz/bombadinhhos.svg" alt="">
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </section>
-    <section id="quiz">
-        <div class="div-quiz">
-            QUIZ
-            <div class="div-questionario"></div>
-        </div>
-        <!-- quiz a partir daqui-->
-    </section>
-</main>
-<footer>
-    <section id="footer">
-        <div id="div-footer"></div>
-        <!-- coisas do footer-->
-    </section>
-</footer>
+        </section>
+    </main>
+    <footer>
+        <section id="footer">
+            <div class="div-footer">
+                <div class="informacoes">
+                   <span class="titulo-footer"> INFORMAÇÕES </span> <BR>
+                   <span class="texto-footer"> A Donut Worry, Cook Happy! está presente em diversas plataformas digitais, acompanhe também nossas fofuras nas redes sociais.</span>
+                   <BR><img src="assets/img_home/Social Icon.svg" alt="">
+                </div>
+                <div class="navegacao">
+                    <span class="titulo-footer">NAVEGAÇÃO</span> 
+                    <ul>
+                        <li> <a href="#home"> <span class="marcador"> > </span> Home </a></li>
+                        <li> <a href="#receitas"> <span class="marcador"> > </span> Receitas </a></li>
+                        <li> <a href="#quiz"> <span class="marcador">  > </span> Quiz  </a> </li>
+                        <li> <a href="#footer"> <span class="marcador"> > </span> Contatos </a> </li>
+                    </ul>
+                    <div class="novidades">
+                        <span class="titulo-footer">
+                            RECEBA NOVIDADES!
+                        </span>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.432117024423!2d-46.65512108255615!3d-23.660500099999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5ab798c833c3%3A0xc75afadc05393345!2sRua%20Professor%20Nelson%20de%20Senna%20-%20Cidade%20Domitila%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004387-230!5e0!3m2!1spt-BR!2sbr!4v1683254853376!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <!-- <img src="assets/img_home/loc.png" alt=""> R. Haddock Lobo, 45 -->
+                        <img src="assets/img_home/email.png" alt=""> donutworrycookhappy@gmail.com
+                        <input type="text">
+                        <button class="botao"> INSCREVER-SE
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+            <!-- coisas do footer-->
+        </section>
+    </footer>
 
 </body>
 
 </html>
 
 <script>
+    function resultado (){
+
+    }
 </script>
