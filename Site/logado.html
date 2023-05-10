@@ -41,11 +41,13 @@
                 </div>
 
                 <div class="div-sal-doc">
-                    <div class="textinho">
-
-                        Faça Login para ter acesso a nossas receitas exclusivas!
+                    <div class="doc1">
+                        <img src="assets/img_home/sopadearroz.svg" alt=""><br><a
+                            href="receitas/receitassalgadas.html"><button class="botao"> Salgadas</button> </a>
                     </div>
-            
+                    <div class="doc2">
+                        <a href="receitas/receitasdoces.html"><button class="botao">Doces</button> </a><br><img
+                            src="assets/img_home/biscoitinhos.svg" alt="">
                     </div>
                 </div>
             </div>
@@ -59,22 +61,22 @@
                 <div class="div-questionario">
                     <div class="div-perguntas">
                         • Você prefere comida salgada ou doce?<br>
-                        <input id="input_quest1" type="text" class="input-quest1">
+                        <input type="text" class="input-quest1">
                         • Animais selvagens ou domesticos?<br>
-                        <input id="input_quest2" type="text" class="input-quest2">
+                        <input type="text" class="input-quest2">
                         • Restaurante ou café?
-                        <input id="input_quest3" type="text" class="input-quest3">
+                        <input type="text" class="input-quest3">
                         • Você vai/gosta de academia?
-                        <input id="input_quest4" type="text" class="input-quest4">
-                        <button class="botao" onclick="resultado()">Resultado</button>
+                        <input type="text" class="input-quest4">
+                        <button class="botao">Resultado</button>
                     </div>
                 </div>
                 <div class="div-resultado">
-                    <div id="div_resultado_tex" class="resultado-texto">
-                       
+                    <div id="resultado-tex" class="resultado-texto">
+                        Você combina com tananan nanana <br> tananana pontos blablabla
                     </div>
-                    <div id="div_resultado_img" class="resultado-imagem">
-                       
+                    <div id="resultado-img" class="resultado-imagem">
+                        <img src="./assets/img_home/quiz/bombadinhhos.svg" alt="">
                     </div>
                 </div>
             </div>
@@ -121,61 +123,10 @@
     </footer>
 
 </body>
-
 </html>
 
 <script>
     function resultado() {
-        var quest1 = input_quest1.value.toLowerCase();
-        var quest2 = input_quest2.value.toLowerCase();
-        var quest3 = input_quest3.value.toLowerCase(); 
-        var quest4 = input_quest4.value.toLowerCase(); 
 
-        var resultado = 0;
-
-        div_resultado_tex.innerHTML = "";
-        div_resultado_img.innerHTML = "";
-        
-        if(quest1 == "salgada"){
-            resultado += 5;
-        }else if (quest1 == "doce"){
-            resultado += 10;
-        }else {
-            div_resultado_tex.innerHTML = "Escreva os dados corretamente :()";
-            div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
-        }
-
-        if(quest2 == "selvagens"){
-            resultado += 5;
-        } else if (quest2 == "domesticos"){
-            resultado += 10;
-        }else {
-            div_resultado_tex.innerHTML = "Escreva os dados corretamente :()";
-            div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
-        }
-
-        if(quest3 == "restaurante"){
-            resultado += 5;
-        } else if (quest3 == "cafe"){
-            resultado += 10;
-        }else {
-            div_resultado_tex.innerHTML = "Escreva os dados corretamente :()";
-            div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
-        }
-
-        if(quest4 == "não"){
-             resultado += 5;
-                } else if (quest4 == "sim"){
-        resultado += 10;
-                } else {
-                div_resultado_tex.innerHTML = "Escreva os dados corretamente :()";
-                div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
-                }
-                
-
-        if (resultado < 10){
-            div_resultado_tex.innerHTML = `Você combina com a Croiassant-gosta! <br> Essas lagostinhas são capazes de conquistar a qualquer um`
-            div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/lagostinhas.svg" alt="">`
-        }
     }
 </script>
