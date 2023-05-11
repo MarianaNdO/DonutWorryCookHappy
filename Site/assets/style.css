@@ -211,7 +211,8 @@ li {
   text-indent: 2%;
 }
 
-.div-perguntas .botao {
+.div-perguntas .botao,
+.div-login .botao {
   width: 200px;
   height: 100px;
   display: flex;
@@ -294,7 +295,7 @@ li {
 }
 
 
-.div-navegacao ul li a {
+/*.div-navegacao ul li a {
   list-style: none;
   font-style: none;
   font-size: 20px;
@@ -309,7 +310,7 @@ li {
   padding: 10px;
 }
 
-/*.div-navegacao {
+.div-navegacao {
   display: flex;
   flex-direction: column;
   height: 270px;
@@ -365,4 +366,87 @@ li {
 .div-loc{
   width: 40%;
   height: 500px;
+}
+
+.div-icone{
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.div-login{
+  width: 60%;
+  height: 430px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 63px;
+  background-color: #ca9f7d;
+  color: #59423D;
+  font-size: 48px;
+  font-family: Amatic SC;
+  padding: 48px;
+
+}
+
+.div-login span{
+  text-align: center;
+  color: #ffffff;
+  font-family: fredoka one;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.div-login input {
+  width: 800px;
+  height: 55px;
+  border: none;
+  border-radius: 30px;
+  background-color: #D9D9D9;
+  font-family: Quicksand;
+  font-size: 20px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  text-indent: 2%;
+  ;
+}
+
+.div-tela-login {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.div-senha {
+  margin-top: 20px;
+}
+
+
+.div-inferior{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.div-inferior ul li a {
+  display: flex;
+  list-style: none;
+  font-style: Fredoka one;
+  font-weight: 500;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.div-inferior ul li a:hover {
+  color: #d4b793;
+}
+
+.div-inferior ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
