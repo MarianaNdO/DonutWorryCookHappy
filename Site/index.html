@@ -12,21 +12,20 @@
 <body>
     <header>
         <nav class="navbar">
-            <ul>
-                <li><a href="#header"><button class="botao" onclick="header">Home</button></a></li>
-                <li> <a href="#receitas"><Button class="botao">Receitas</Button></a></li>
-                <li> <a href="#quiz"><button class="botao">Quiz</button></a> </li>
-                <li> <a href="#footer"> <button class="botao">Contato</button></a></li>
-                <li> <a href="login.html"> <button class="botao">Login</button></a></li>
-            </ul>
-            <div class="logo"> <!-- logo daa navbar --></div>
+            <!-- VE SEM PRECISA DO BOTAO HOME PQ VC JA ESTA NA HOME E TEM UM BOTAO PRA VOLTAR PRA HOME -->
+            <!-- <li><a href="#header"><button class="botao" onclick="header">Home</button></a></li> -->
+            <li> <a href="#receitas"><Button class="botao">Receitas</Button></a></li>
+            <li> <a href="#quiz"><button class="botao">Quiz</button></a> </li>
+            <li> <a href="#footer"> <button class="botao">Contato</button></a></li>
+            <li> <a href="login.html"> <button class="botao">Login</button></a></li>
+            <img src="../Site/assets/logo.svg" alt="">
         </nav>
 
         <!-- header a partir daqui-->
         <section id="header">
             <div class="div-imagens"><!-- imagens da header"--> <img class="header-imagem"
                     src="assets/img_home/z o e.jpg"> <img class="header-imagem" src="assets/img_home/download (3).jpg">
-                <img class="header-imagem" src="assets/img_home/ଘ( ິ•ᆺ• )ິଓ.jpg">
+                <img class="header-imagem" src="assets/img_home/GATINFOFIM.jpg">
             </div>
             <div class="div-texto">O mundo precisa de mais coisas fofinhas, <br> e a sua cozinha pode ser o lugar
                 perfeito <br> para começar!</div>
@@ -71,7 +70,7 @@
                 </div>
                 <div class="div-resultado">
                     <div id="div_resultado_tex" class="resultado-texto">
-                       <p> O Resultado do seu quiz aparecerá aqui. Responda já! </p>
+                        <p> O Resultado do seu quiz aparecerá aqui. Responda já! </p>
                     </div>
                     <div id="div_resultado_img" class="resultado-imagem">
                         <img src="assets/img_home/quiz/gatos.svg" alt="">
@@ -91,7 +90,7 @@
                         digitais, acompanhe também nossas fofuras nas redes sociais.</span>
                     <br><img src="assets/img_home/Social Icon.svg" alt="">
                 </div>
-            
+
                 <div class="div-novidades">
                     <span class="titulo-footer">
                         RECEBA NOVIDADES!
@@ -120,13 +119,15 @@
 
 <script>
     var resultado = 0;
-    var quest1 = input_quest1.value.toLowerCase();
-    var quest2 = input_quest2.value.toLowerCase();
-    var quest3 = input_quest3.value.toLowerCase();
-    var quest4 = input_quest4.value.toLowerCase();
 
     function resultado_quiz() {
         resultado = 0
+
+        var quest1 = input_quest1.value.toLowerCase();
+        var quest2 = input_quest2.value.toLowerCase();
+        var quest3 = input_quest3.value.toLowerCase();
+        var quest4 = input_quest4.value.toLowerCase();
+
         div_resultado_tex.innerHTML = "";
         div_resultado_img.innerHTML = "";
 
@@ -137,72 +138,80 @@
             resultado += 10;
             etapa2();
         } else {
+            console.log("etapa 1")
             div_resultado_tex.innerHTML = "Escreva os dados corretamente :()";
             div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
         }
 
-        
+
         function etapa2() {
             if (quest2 == "selvagens") {
-            resultado += 5;
-            etapa3()
-        } else if (quest2 == "domesticos") {
-            resultado += 10;
-            etapa3();
-        } else {
-            div_resultado_tex.innerHTML = "Escreva os dados corretamente :()";
-            div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
+                resultado += 5;
+                etapa3()
+            } else if (quest2 == "domesticos") {
+                resultado += 10;
+                etapa3();
+            } else {
+                console.log("etapa 2")
+                div_resultado_tex.innerHTML = "Escreva os dados corretamente :()";
+                div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
+            }
         }
-    }
 
-    function etapa3() {
+        function etapa3() {
+            if (quest3 == "restaurante") {
+                resultado += 5;
+                etapa4();
+            } else if (quest3 == "cafe") {
+                resultado += 10;
+                etapa4();
+            } else {
+                console.log("etapa 3")
+                div_resultado_tex.innerHTML = "Escreva os dados corretamente :(";
+                div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
+            }
+        }
 
-        
-        if (quest3 == "restaurante") {
-            resultado += 5;
-            etapa4();
-        } else if (quest3 == "cafe") {
-            resultado += 10;
-            etapa4();
-        } else {
-            div_resultado_tex.innerHTML = "Escreva os dados corretamente :(";
-            div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
+        function etapa4() {
+            if (quest4 == "não") {
+                resultado += 5;
+                etapaFinal();
+            } else if (quest4 == "sim") {
+                resultado += 10;
+                etapaFinal();
+            } else {
+                console.log("etapa 4")
+                div_resultado_tex.innerHTML = "Escreva os dados corretamente :(";
+                div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
+            }
         }
-        }
-    function etapa4(){
-        if (quest4 == "não") {
-            resultado += 5;
-        } else if (quest4 == "sim") {
-            resultado += 10;
-        } else {
-            div_resultado_tex.innerHTML = "Escreva os dados corretamente :(";
-            div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
-        }
-    }
-        
-        if (resultado < 20) {
-            div_resultado_tex.innerHTML = "Escreva os dados corretamente :(";
-            div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
-        }
-        if (resultado == 20){
-         div_resultado_tex.innerHTML = `Você combina com os Sete Monstrinhos da alimentação saúdavel ! <br> Essas lagostinhas "selvagemente" preguiçosas são capazes de conquistar a qualquer um`
-        div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/monstrinhos.svg" alt="">`
-        }
-        if (resultado == 25){
-         div_resultado_tex.innerHTML = `Você combina com a Croiassant-gosta! <br> Essas lagostinhas "selvagemente" preguiçosas são capazes de conquistar a qualquer um`
-        div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/lagostinhas.svg" alt="">`
-        }
-        if (resultado == 30){
-         div_resultado_tex.innerHTML = `Você combina com o Nequinha! <br> Essas lagostinhas "selvagemente" preguiçosas são capazes de conquistar a qualquer um`
-        div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/nequinha.svg" alt="">`
-        }
-        if (resultado == 35){
-         div_resultado_tex.innerHTML = `Você combina com o Ursinho Gordurento! <br> Essas lagostinhas "selvagemente" preguiçosas são capazes de conquistar a qualquer um`
-        div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/Ursinho Gordurento.svg" alt="">`
-        }
-        if (resultado == 40){
-         div_resultado_tex.innerHTML = `Você combina com o coelho bombado! <br> Essas lagostinhas "selvagemente" preguiçosas são capazes de conquistar a qualquer um`
-        div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/bombadinhos.svg" alt="">`
+
+        function etapaFinal() {
+            console.log("etapa final")
+            if (resultado < 20) {
+                div_resultado_tex.innerHTML = "Escreva os dados corretamente :(";
+                div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
+            }
+            if (resultado == 20) {
+                div_resultado_tex.innerHTML = `Você combina com os Sete Monstrinhos da alimentação saúdavel ! <br> Essas lagostinhas "selvagemente" preguiçosas são capazes de conquistar a qualquer um`
+                div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/monstrinhos.svg" alt="">`
+            }
+            if (resultado == 25) {
+                div_resultado_tex.innerHTML = `Você combina com a Croiassant-gosta! <br> Essas lagostinhas "selvagemente" preguiçosas são capazes de conquistar a qualquer um`
+                div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/lagostinhas.svg" alt="">`
+            }
+            if (resultado == 30) {
+                div_resultado_tex.innerHTML = `Você combina com o Nequinha! <br> Essas lagostinhas "selvagemente" preguiçosas são capazes de conquistar a qualquer um`
+                div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/nequinha.svg" alt="">`
+            }
+            if (resultado == 35) {
+                div_resultado_tex.innerHTML = `Você combina com o Ursinho Gordurento! <br> Essas lagostinhas "selvagemente" preguiçosas são capazes de conquistar a qualquer um`
+                div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/Ursinho Gordurento.svg" alt="">`
+            }
+            if (resultado == 40) {
+                div_resultado_tex.innerHTML = `Você combina com o coelho bombado! <br> Essas lagostinhas "selvagemente" preguiçosas são capazes de conquistar a qualquer um`
+                div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/bombadinhos.svg" alt="">`
+            }
         }
 
     }

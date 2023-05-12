@@ -20,18 +20,24 @@ li {
   font-style: none;
   text-decoration: none;
 }
+
 .navbar {
+  display: flex;
   width: 100%;
   height: 150px;
-  display: flex;
-  justify-content: space-between;
   background-color: #f3e8e2;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.navbar img {
+  width: 90px;
 }
 
 .navbar ul {
-  padding: 3%;
-  margin-left: 5%;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 3%;
   border: 3%;
   display: flex;
   gap: 150px;
@@ -242,6 +248,7 @@ li {
   font-size: 40px;
   font-family: Fredoka One;
 }
+
 .resultado-imagem {
   display: flex;
   width: 40%;
@@ -275,6 +282,7 @@ li {
   width: 250px;
   height: 250px;
 }
+
 .titulo-footer {
   width: 100%;
   color: white;
@@ -290,10 +298,15 @@ li {
   width: 100%;
   text-align: justify;
 }
+
 .marcador {
   color: #757575;
   font-size: 20px;
   font-weight: 100px;
+}
+
+.div-novidades input {
+  text-indent: 2%;
 }
 
 /*.div-navegacao ul li a {
@@ -339,6 +352,7 @@ li {
   border: none;
   height: 40px;
 }
+
 .div-novidades span {
   display: flex;
   justify-content: center;
@@ -441,6 +455,7 @@ li {
   justify-content: space-between;
   align-items: center;
 }
+
 .div-inferior ul li a {
   display: flex;
   list-style: none;
@@ -465,7 +480,9 @@ li {
   justify-content: space-around;
 }
 
-.div-receita1, .div-receita2, .div-receita3 {
+.div-receita1,
+.div-receita2,
+.div-receita3 {
   display: flex;
   color: #ffffff;
   font-size: 20px;
@@ -473,7 +490,7 @@ li {
   align-items: center;
 }
 
-.div-receita2{
+.div-receita2 {
   background-color: #CA9F7D;
 }
 
@@ -498,4 +515,3 @@ li {
 .div-ingredientes p {
   margin-top: 30px;
 }
-
