@@ -169,6 +169,8 @@ li {
   height: 100px;
 }
 
+/* QUIZ  */
+
 .div-quiz {
   margin-top: 6%;
   height: 1600px;
@@ -270,7 +272,21 @@ li {
 .resultado-imagem img {
   width: 400px;
   height: 400px;
+  display: flex;
 }
+
+.div-insights a {
+  display: flex;
+  color: white;
+}
+
+.div-coluna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* FOOTER */
 
 .div-footer {
   width: 100%;
