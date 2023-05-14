@@ -12,13 +12,11 @@
 <body>
     <header>
         <nav class="navbar">
-            <!-- VE SEM PRECISA DO BOTAO HOME PQ VC JA ESTA NA HOME E TEM UM BOTAO PRA VOLTAR PRA HOME -->
-            <!-- <li><a href="#header"><button class="botao" onclick="header">Home</button></a></li> -->
             <li> <a href="#receitas"><Button class="botao">Receitas</Button></a></li>
             <li> <a href="#quiz"><button class="botao">Quiz</button></a> </li>
             <li> <a href="#footer"> <button class="botao">Contato</button></a></li>
             <li> <a href="login.html"> <button class="botao">Login</button></a></li>
-            <img src="../Site/assets/logo.svg" alt="">
+            <img src="assets/logo.svg" alt="">
         </nav>
 
         <!-- header a partir daqui-->
@@ -58,13 +56,13 @@
                 <div class="div-questionario">
                     <div class="div-perguntas">
                         • Você prefere comida salgada ou doce?<br>
-                        <input id="input_quest1" type="text" class="input-quest1">
+                        <input placeholder="Ex.: salgada" id="input_quest1" type="text" class="input-quest1">
                         • Animais selvagens ou domesticos?<br>
-                        <input id="input_quest2" type="text" class="input-quest2">
+                        <input placeholder="Ex.: selvagens" id="input_quest2" type="text" class="input-quest2">
                         • Restaurante ou café?
-                        <input id="input_quest3" type="text" class="input-quest3">
+                        <input placeholder="Ex.: café" id="input_quest3" type="text" class="input-quest3">
                         • Você vai/gosta de academia?
-                        <input id="input_quest4" type="text" class="input-quest4">
+                        <input placeholder="Ex.: não" id="input_quest4" type="text" class="input-quest4">
                         <button class="botao" onclick="resultado_quiz()">Resultado</button>
                     </div>
                 </div>
@@ -95,9 +93,9 @@
                     <span class="titulo-footer">
                         RECEBA NOVIDADES!
                     </span>
-                    <!-- <img src="assets/img_home/loc.png" alt=""> R. Haddock Lobo, 45 -->
-                    <p><img src="assets/img_home/email.png" alt=""> donutworrycookhappy@gmail.com </p> <input
-                        type="text">
+            
+                    <p><img src="assets/img_home/email.png" alt=""> donutworrycookhappy@gmail.com </p>
+                     <input type="text">
                     <span> <button class="botao"> INSCREVER-SE
                         </button> </span>
 
@@ -139,7 +137,7 @@
             etapa2();
         } else {
             console.log("etapa 1")
-            div_resultado_tex.innerHTML = "Escreva os dados corretamente :()";
+            div_resultado_tex.innerHTML = "Escreva os dados corretamente :(";
             div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
         }
 
@@ -153,7 +151,7 @@
                 etapa3();
             } else {
                 console.log("etapa 2")
-                div_resultado_tex.innerHTML = "Escreva os dados corretamente :()";
+                div_resultado_tex.innerHTML = "Escreva os dados corretamente :(";
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
             }
         }
@@ -162,7 +160,7 @@
             if (quest3 == "restaurante") {
                 resultado += 5;
                 etapa4();
-            } else if (quest3 == "cafe") {
+            } else if (quest3 == "café") {
                 resultado += 10;
                 etapa4();
             } else {
@@ -193,23 +191,23 @@
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
             }
             if (resultado == 20) {
-                div_resultado_tex.innerHTML = `Você combina com os Sete Monstrinhos da alimentação saúdavel ! <br> Essas lagostinhas "selvagemente" preguiçosas são capazes de conquistar a qualquer um`
+                div_resultado_tex.innerHTML = `Você combina com os Sete Monstrinhos da alimentação saúdavel ! <br> `
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/monstrinhos.svg" alt="">`
             }
             if (resultado == 25) {
-                div_resultado_tex.innerHTML = `Você combina com a Croiassant-gosta! <br> Essas lagostinhas "selvagemente" preguiçosas são capazes de conquistar a qualquer um`
-                div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/lagostinhas.svg" alt="">`
+                div_resultado_tex.innerHTML = `Você combina com a Croiassant-gosta! <br> `
+                div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/Lagosta.svg" alt="">`
             }
             if (resultado == 30) {
-                div_resultado_tex.innerHTML = `Você combina com o Nequinha! <br> Essas lagostinhas "selvagemente" preguiçosas são capazes de conquistar a qualquer um`
+                div_resultado_tex.innerHTML = `Você combina com o Nequinha! <br>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/nequinha.svg" alt="">`
             }
             if (resultado == 35) {
-                div_resultado_tex.innerHTML = `Você combina com o Ursinho Gordurento! <br> Essas lagostinhas "selvagemente" preguiçosas são capazes de conquistar a qualquer um`
+                div_resultado_tex.innerHTML = `Você combina com o Ursinho Gordurento! <br>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/Ursinho Gordurento.svg" alt="">`
             }
             if (resultado == 40) {
-                div_resultado_tex.innerHTML = `Você combina com o coelho bombado! <br> Essas lagostinhas "selvagemente" preguiçosas são capazes de conquistar a qualquer um`
+                div_resultado_tex.innerHTML = `Você combina com o coelho bombado! <br>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/bombadinhos.svg" alt="">`
             }
         }

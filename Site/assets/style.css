@@ -15,11 +15,18 @@ header {
   width: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 li {
   list-style: none;
   font-style: none;
   text-decoration: none;
 }
+
+/* PAGINA INDEX */
 
 .navbar {
   display: flex;
@@ -68,6 +75,11 @@ li {
   font-weight: 500px;
   cursor: pointer;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.botao:active {
+  position: relative;
+  top: 1px;
 }
 
 .div-imagens {
@@ -272,7 +284,7 @@ li {
 .div-informacoes {
   display: flex;
   width: 25%;
-  height: 200px;
+  height: 270px;
   flex-direction: column;
   justify-content: center;
   margin: 5%;
@@ -305,31 +317,6 @@ li {
   font-weight: 100px;
 }
 
-.div-novidades input {
-  text-indent: 2%;
-}
-
-/*.div-navegacao ul li a {
-  list-style: none;
-  font-style: none;
-  font-size: 20px;
-  color: #ffffff;
-  flex-direction: column;
-  font-weight: 500px;
-  justify-content: space-between;
-  text-decoration: none;
-}
-
-.div-navegacao ul li {
-  padding: 10px;
-}
-
-.div-navegacao {
-  display: flex;
-  flex-direction: column;
-  height: 270px;
-  width: 20%;
-} */
 
 .div-novidades {
   display: flex;
@@ -347,10 +334,13 @@ li {
 }
 
 .div-novidades input {
+  text-indent: 3%;
   width: 100%;
   border-radius: 30px;
   border: none;
   height: 40px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  
 }
 
 .div-novidades span {
@@ -360,6 +350,7 @@ li {
 
 .div-novidades .botao {
   width: 200px;
+  background-color: #757575;
 }
 
 .div-novidades p {
@@ -378,6 +369,8 @@ li {
   width: 40%;
   height: 500px;
 }
+
+/* LOGIN E CADASTRO */
 
 .div-icone {
   width: 100%;
@@ -480,6 +473,8 @@ li {
   justify-content: space-around;
 }
 
+/* RECEITAS  */
+
 .div-receita1,
 .div-receita2,
 .div-receita3 {
@@ -488,14 +483,40 @@ li {
   font-size: 20px;
   justify-content: center;
   align-items: center;
+  font-weight: 800;
+  padding: 30px;
 }
+
+.div-receita1 p,
+.div-receita2 p,
+.div-receita3 p {
+  width: 400px;
+  margin-top: 0px;
+}
+
+.modo-de-preparo{
+  color: #59423D;
+  font-size: 30px;
+  font-family: Amatic SC;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+
+/* RECEITAS SALGADAS  */
 
 .div-receita2 {
   background-color: #CA9F7D;
+  margin: 0px;
+  color: #59423D;
 }
 
 .div-imagem {
   display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .div-preparo {
@@ -508,10 +529,22 @@ li {
 .div-ingredientes {
   display: flex;
   color: #ffffff;
-  width: 80%;
+  margin: 10px;
+  width: 50%;
   flex-direction: column;
+
 }
 
 .div-ingredientes p {
   margin-top: 30px;
+}
+
+/* RECEITAS DOCE */
+
+.body-receitasdoces{
+  background-color: #CA9F7D;
+}
+
+.body-receitasdoces .div-receita2{
+  background-color: #DBB7B7;
 }
