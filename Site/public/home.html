@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" href="./assets/icon.svg" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,8 +65,8 @@
                     <input placeholder="Ex.: salgada" id="input_quest1" type="text" class="input-quest1">
                     • Animais selvagens ou domesticos?<br>
                     <input placeholder="Ex.: selvagens" id="input_quest2" type="text" class="input-quest2">
-                    • Restaurante ou café?
-                    <input placeholder="Ex.: café" id="input_quest3" type="text" class="input-quest3">
+                    • Restaurante ou cafeteria?
+                    <input placeholder="Ex.: restaurante" id="input_quest3" type="text" class="input-quest3">
                     • Você vai/gosta de academia?
                     <input placeholder="Ex.: não" id="input_quest4" type="text" class="input-quest4">
                     <button class="botao" onclick="resultado_quiz()">Resultado</button>
@@ -77,8 +78,9 @@
                 </div>
                 <div id="div_resultado_img" class="resultado-imagem">
                     <img src="assets/img_home/quiz/gatos.svg" alt="">
-
                 </div>
+                <div class="div-dashboard"> <a href="dashboard/dashboard.html"> Faça Login para ter acesso aos Insights! </a> </div>
+                    </div>
             </div>
         </div>
 
@@ -120,6 +122,7 @@
 
                 </div>
             </div>
+            
             <!-- coisas do footer-->
         </section>
     </footer>
@@ -172,7 +175,7 @@
             if (quest3 == "restaurante") {
                 resultado += 5;
                 etapa4();
-            } else if (quest3 == "café") {
+            } else if (quest3 == "cafeteria") {
                 resultado += 10;
                 etapa4();
             } else {
@@ -216,7 +219,7 @@
             }
             if (resultado == 35) {
                 div_resultado_tex.innerHTML = `Você combina com o Ursinho Gordurento! <br>`
-                div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/Ursinho Gordurento.svg" alt="">`
+                div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/Ursinhogordurento.svg" alt="">`
             }
             if (resultado == 40) {
                 div_resultado_tex.innerHTML = `Você combina com o coelho bombado! <br>`

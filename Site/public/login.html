@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="../assets/icon.svg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Donut Worry, Cook Happy!</title> 
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <div class="div-tela-login">
+    <div class="div-icone">
+     <img src="assets/Donut.svg" alt="">
+    </div>
+    <div class="div-login">
+        <span>BEM VINDO (A) DE VOLTA!</span>
+        <div>
+         email: <br>
+        <input id="input_email"></div>
+        <div class="div-senha">
+        senha:<br>
+        <input type="password" id="input_senha"></div>
+        <button class="botao" onclick="entrar()">ENTRAR</button>
+    </div>
+    <div class="div-inferior"> <ul>
+        <li> <a href="index.html">VOLTAR</a> </li>
+        <li> <a href="cadastro.html">CADASTRE-SE!</a> </li>
+    </ul>
+    </div>
+</div>
+</body>
+
+</html>
+<script>
+function entrar() {
+
+
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+
+    if (emailVar == "" || senhaVar == "") {
+   
+        return false;
+    }
+   
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.id;
+
+                setTimeout(function () {
+                    window.location = "home.html";
+                }, 1000); // apenas para exibir o loading
+
+            });
+
+        } else {
+
+            console.log("Houve um erro ao tentar realizar o login!");
+
+            resposta.text().then(texto => {
+                console.error(texto);
+           
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    return false;
+}
+
+
+</script>

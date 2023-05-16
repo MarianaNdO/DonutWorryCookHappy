@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="./assets/icon.svg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Donut Worry, Cook Happy!</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="js/funcoes.js"></script>
+</head>
+
+<body>
+    <div class="div-tela-login">
+        <div class="div-icone">
+            <img src="assets/Donut.svg" alt="">
+        </div>
+        <div class="div-cadastro">
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
+            <div>
+                NOME:<br>
+                <input id="input_nome" placeholder="nome">
+            </div>
+            <div>SOBRENOME: <br>
+                <input id="input_sobrenome" placeholder="sobrenome">
+            </div>
+            <div>
+                E-MAIL: <br>
+                <input type="text" id="input_email_cadastro" placeholder="email">
+            </div>
+            <div>
+                SENHA: <br>
+                <input type="password" id="input_senha_cadastro" placeholder="senha">
+            </div>
+            <div>
+                CONFIRME A SENHA: <br>
+                <input type="password" id="input_confirmacao_senha" placeholder="senha">
+            </div>
+            <button class="botao" onclick="cadastrar()"> CADASTRAR</button>
+        </div>
+        <div id="div_aguardar" class="loading-div">
+            <img src="../assets/circle-loading.gif" id="loading-gif">
+        </div>
+
+        <div id="div_erros_login"></div>
+    </div>
+        <div class="div-inferior">
+            <ul>
+                <li> <a href="login.html">VOLTAR</a> </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function cadastrar() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = input_nome.value;
+        var sobrenomeVar = input_sobrenome.value
+        var emailVar = input_email_cadastro.value;
+        var senhaVar = input_senha_cadastro.value;
+        var confirmacaoSenhaVar = input_confirmacao_senha.value;
+
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || sobrenomeVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Preencha os campos corretamente! :( )";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                sobrenomeServer: sobrenomeVar, //
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

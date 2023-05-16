@@ -275,7 +275,7 @@ li {
   display: flex;
 }
 
-.div-insights a {
+.div-dashboard a {
   display: flex;
   color: white;
 }
@@ -296,6 +296,8 @@ li {
   align-items: center;
   justify-content: space-around;
 }
+
+
 
 .div-informacoes {
   display: flex;
@@ -424,6 +426,17 @@ li {
   font-size: 48px;
   font-family: Amatic SC;
   padding: 48px;
+}
+
+.loading-div {
+  width: 50px;
+  margin: auto;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
 }
 
 .div-login span {
