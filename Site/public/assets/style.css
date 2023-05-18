@@ -261,7 +261,15 @@ li {
   color: #ffffff;
   font-size: 40px;
   font-family: Fredoka One;
+  flex-direction: column;
 }
+
+.resultado-texto a {
+  margin-top: 100px;
+  font-size: 16px;
+}
+
+
 
 .resultado-imagem {
   display: flex;
@@ -275,9 +283,25 @@ li {
   display: flex;
 }
 
+.div-dashboard{
+  display: flex;
+}
+
 .div-dashboard a {
   display: flex;
   color: white;
+  margin-left: 0px;
+}
+
+.div-dashboard2{
+  display: flex;
+  align-items: center;
+}
+
+.div-dashboard2 a {
+  display: flex;
+  color: white;
+  margin-left: 0px;
 }
 
 .div-coluna {
@@ -524,6 +548,7 @@ li {
 }
 
 .modo-de-preparo{
+  width: 33%;
   color: #59423D;
   font-size: 30px;
   font-family: Amatic SC;
@@ -542,6 +567,7 @@ li {
 }
 
 .div-imagem {
+  width: 33%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -551,7 +577,7 @@ li {
 .div-preparo {
   display: flex;
   color: #ffffff;
-  width: 60%;
+  width: 33%;
   flex-direction: column;
 }
 
@@ -559,7 +585,7 @@ li {
   display: flex;
   color: #ffffff;
   margin: 10px;
-  width: 50%;
+  width: 33%;
   flex-direction: column;
 
 }

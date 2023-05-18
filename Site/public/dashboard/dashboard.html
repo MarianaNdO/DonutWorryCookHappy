@@ -11,104 +11,36 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="dashboards.css">
     <script src="../js/funcoes.js"></script>
-
-    <!-- scripts do Chart.js - 2022-1 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
 <body onload=" atualizarFeed()">
 
-    <div class="janela">
-        <div class="header-left">
-            <h1>AquaTech</h1>
-
-            <div class="hello">
-                <h2>Olá querido, <span id="b_usuario">usuário</span>!</h2>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
+    <div class="div-janela">
+        <div class="div-indicadores">
+            <div id="indicador_1"> <span id="sal_porcentagem"> Tanto por cento </span> dos usuarios preferem comida SALGADA!</div>
+            <div id="indicador_2">A maioria dos usuarios combinam com <span id="s_resultado"> RESULTADO! </span></div>
+            <div id="indicador_3"> <span id="doc_porcentagem"> Tanto por cento </span> dos usuarios preferem comida DOCE!</div>
         </div>
-
-        <div class="dash">
-            <div class="btns-dash">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                <button class="btn-chart btn-pink" onclick="exibirAquario(1)" id="btnAquario1">Aquario 1</button>
-                <button class="btn-chart btn-white" onclick="exibirAquario(2)" id="btnAquario2">Aquario 2</button>
-                <button class="btn-chart btn-white" onclick="exibirAquario(3)" id="btnAquario3">Aquario 3</button>
-                <button class="btn-chart btn-white" onclick="exibirAquario(4)" id="btnAquario4">Aquario 4</button>
-            </div>
-            <div id="graficos">
-                <div id="grafico1" class="display-block">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario1">123</span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas1"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura1" style="color: white"></p>
-                    </div>
-                </div>
-
-                <div id="grafico2" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario2"></span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas2"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura2" style="color: white"></p>
-                    </div>
-                </div>
-
-                <div id="grafico3" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario3"></span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas3"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura3" style="color: white"></p>
-                    </div>
-                </div>
-
-                <div id="grafico4" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario4"></span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas4"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura4" style="color: white"></p>
+        <div class="div-header">
+                <h2>Olá, <span id="b_usuario">usuário!</span>! Você combina com <span id="b_resultado">resultado!</span> </h2>
+                <div id="insights">
+                    <div id="grafico" class="display-block">
+                        <h3 class="tituloGraficos">
+                            <span id="titulo1">Os usuarios preferem:</span>
+                        </h3>
+                        <div class="graph">
+                            <canvas id="myChartCanvas"></canvas>
+                        </div>
+                        <div class="label-captura">
+                            <p id="avisoCaptura1" style="color: white"></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <a href="../home.html">VOLTAR</a>
     </div>
 
 
@@ -125,19 +57,17 @@
 
     function obterDadosGraficos() {
         obterDadosGrafico(1)
-        obterDadosGrafico(2)
-        obterDadosGrafico(3)
-        obterDadosGrafico(4)
+       
     }
 
     verificar_autenticacao();
 
-    function alterarTitulo(idAquario) {
-        var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-        tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idAquario + "</span>"
+    function alterarTitulo(idResultado) {
+        var tituloResultado = document.getElementById(`tituloResultado${idResultado}`)
+        tituloResultado.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idResulto + "</span>"
     }
 
-    function exibirAquario(idAquario) {
+    function exibir(idResultado) {
         let todosOsGraficos = document.getElementById("graficos")
 
         for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
@@ -149,7 +79,7 @@
             elementoAtual.classList.add("display-none")
             
             // alterando estilo do botão
-            let btnAtual = document.getElementById(`btnAquario${i}`)
+            let btnAtual = document.getElementById(`btnQuiz${i}`)
             if (btnAtual.classList.contains("btn-pink")) {
                 btnAtual.classList.remove("btn-pink")
             }
@@ -157,12 +87,12 @@
         }
         
         // exibindo - ou não - o gráfico
-        let graficoExibir = document.getElementById(`grafico${idAquario}`)
+        let graficoExibir = document.getElementById(`grafico${idQuiz}`)
         graficoExibir.classList.remove("display-none")
         graficoExibir.classList.add("display-block")
         
         // alterando estilo do botão
-        let btnExibir = document.getElementById(`btnAquario${idAquario}`)
+        let btnExibir = document.getElementById(`btnQuiz${idAquario}`)
         btnExibir.classList.remove("btn-white")
         btnExibir.classList.add("btn-pink")
     }
@@ -211,21 +141,21 @@
         console.log('iniciando plotagem do gráfico...');
 
         // Criando estrutura para plotar gráfico - labels
-        let labels = [];
+        let labels = ['Red'];
 
         // Criando estrutura para plotar gráfico - dados
         let dados = {
             labels: labels,
             datasets: [{
                 label: 'Umidade',
-                data: [],
+                data: [12, 13, 20, 30, 40, 50, 60,],
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1
             },
             {
                 label: 'Temperatura',
-                data: [],
+                data: [20, 40, 60, 60, 60, 60, 60, 60, 60, 60],
                 fill: false,
                 borderColor: 'rgb(199, 52, 52)',
                 tension: 0.1
@@ -254,13 +184,13 @@
 
         // Criando estrutura para plotar gráfico - config
         const config = {
-            type: 'line',
+            type: 'bar',
             data: dados,
         };
 
         // Adicionando gráfico criado em div na tela
         let myChart = new Chart(
-            document.getElementById(`myChartCanvas${idAquario}`),
+            document.getElementById(`myChartCanvas${idQuiz}`),
             config
         );
 
@@ -277,7 +207,7 @@
 
 
 
-        fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/tempo-real/${idQuiz}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
@@ -285,7 +215,7 @@
                     console.log(`Dados atuais do gráfico:`);
                     console.log(dados);
 
-                    let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
+                    let avisoCaptura = document.getElementById(`avisoCaptura${idQuiz}`)
                     avisoCaptura.innerHTML = ""
 
 
@@ -313,12 +243,12 @@
                     }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idQuiz, dados, myChart), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idQuiz, dados, myChart), 2000);
             }
         })
             .catch(function (error) {
