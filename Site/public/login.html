@@ -20,9 +20,11 @@
         <div>
          email: <br>
         <input id="input_email"></div>
+        <div class="error"> insira um email válido</div>
         <div class="div-senha">
         senha:<br>
         <input type="password" id="input_senha"></div>
+        <div class="error">insira uma senha válida</div>
         <button class="botao" onclick="entrar()">ENTRAR</button>
     </div>
     <div class="div-inferior"> <ul>
@@ -96,5 +98,11 @@ function entrar() {
     return false;
 }
 
+function toggleButonsDisabled(){
 
+}
+
+function toggleEmailErrors(){
+
+}
 </script>

@@ -422,6 +422,13 @@ li {
   justify-content: center;
 }
 
+.error{
+  color: red;
+  font-size: 16px;
+  display: none;
+  position: absolute;
+}
+
 .div-login {
   width: 60%;
   height: 430px;

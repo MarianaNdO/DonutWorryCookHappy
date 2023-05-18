@@ -1,6 +1,7 @@
 CREATE DATABASE IF NOT EXISTS donutworrycookhappy;
 USE donutworrycookhappy;
 
+
 CREATE TABLE resultado (
   idResultado INT PRIMARY KEY AUTO_INCREMENT,
   resultado VARCHAR(45)
@@ -35,6 +36,3 @@ ALTER TABLE quiz ADD CONSTRAINT pergunta3 CHECK (pergunta1 in('restaurante', 'ca
 ALTER TABLE quiz ADD CONSTRAINT pergunta4 CHECK (pergunta1 in('sim', 'nao'));
 
 SHOW TABLES;
-DESC quiz;
-
-
