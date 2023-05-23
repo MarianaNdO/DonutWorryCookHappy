@@ -20,4 +20,7 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+router.post("/atualizar-respostas", function (req, res) {
+    usuarioController.atualizarFk(req, res);
+});
 module.exports = router;

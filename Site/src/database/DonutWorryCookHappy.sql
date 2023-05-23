@@ -1,14 +1,13 @@
 CREATE DATABASE IF NOT EXISTS donutworrycookhappy;
 USE donutworrycookhappy;
 
-
 CREATE TABLE resultado (
   idResultado INT PRIMARY KEY AUTO_INCREMENT,
   resultado VARCHAR(45)
 );
 
 CREATE TABLE quiz (
-  idQuiz INT PRIMARY KEY,
+  idQuiz INT PRIMARY KEY AUTO_INCREMENT,
   pergunta1 VARCHAR(45),
   pergunta2 VARCHAR(45),
   pergunta3 VARCHAR(45),
@@ -30,9 +29,10 @@ CREATE TABLE usuario (
 ) AUTO_INCREMENT = 100;
 
 
+
 ALTER TABLE quiz ADD CONSTRAINT pergunta1 CHECK (pergunta1 in('salgada', 'doce'));
-ALTER TABLE quiz ADD CONSTRAINT pergunta2 CHECK (pergunta1 in('restaurante', 'domesticos'));
-ALTER TABLE quiz ADD CONSTRAINT pergunta3 CHECK (pergunta1 in('restaurante', 'cafe'));
-ALTER TABLE quiz ADD CONSTRAINT pergunta4 CHECK (pergunta1 in('sim', 'nao'));
+ALTER TABLE quiz ADD CONSTRAINT pergunta2 CHECK (pergunta2 in('selvagens', 'domesticos'));
+ALTER TABLE quiz ADD CONSTRAINT pergunta3 CHECK (pergunta3 in('restaurante', 'cafeteria'));
+ALTER TABLE quiz ADD CONSTRAINT pergunta4 CHECK (pergunta4 in('sim', 'não'));
 
 SHOW TABLES;

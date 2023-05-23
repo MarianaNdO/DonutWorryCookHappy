@@ -8,9 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donut Worry, Cook Happy!</title>
     <link rel="stylesheet" href="assets/style.css">
+    <script src="./js/insights.js"></script>
 </head>
 
-<body>
+<body onload="carrossel()">
     <header>
         <nav class="navbar">
             <li> <a href="#receitas"><Button class="botao">Receitas</Button></a></li>
@@ -37,12 +38,13 @@
                 <div class="div-rec-urso">
                     <!--background imagem logo-->
                 </div>
-
                 <div class="div-sal-doc">
-                    <div class="textinho">
-                        Faça Login para ter acesso a nossas receitas exclusivas!
+                    <div class="div-carrossel" id="div_carrossel">
+                        <!-- Imagens do carrossel -->
                     </div>
-
+                    <div class="textinho">
+                        Faça <a href="login.html"> login </a> para ter acesso a nossas receitas exclusivas!
+                    </div>
                 </div>
             </div>
             </div>
@@ -63,22 +65,25 @@
                         <input placeholder="Ex.: cafeteria" id="input_quest3" type="text" class="input-quest3">
                         • Você vai/gosta de academia?
                         <input placeholder="Ex.: não" id="input_quest4" type="text" class="input-quest4">
-                        <button class="botao" onclick="resultado_quiz()">Resultado</button>
+                        <a href="#div_resultado_img"><button class="botao" id="botao"
+                                onclick="resultado_quiz()">Resultado</button></a>
                     </div>
                 </div>
                 <div class="div-resultado">
-                    <div class="div-coluna"><div id="div_resultado_tex" class="resultado-texto">
-                        <p> O Resultado do seu quiz aparecerá aqui. Responda já! </p>
-                        <div class="div-dashboard"> <a href="login.html"> Faça Login para ter acesso aos Insights! </a> </div>
-                    </div>
+                    <div class="div-coluna">
+                        <div id="div_resultado_tex" class="resultado-texto">
+                            <p> O Resultado do seu quiz aparecerá aqui. Responda já! </p>
+                            <div class="div-dashboard"> <a href="login.html"> Faça Login para ter acesso aos Insights!
+                                </a> </div>
+                        </div>
                     </div>
                     <div id="div_resultado_img" class="resultado-imagem">
                         <img src="assets/img_home/quiz/gatos.svg" alt="">
                     </div>
                 </div>
             </div>
-
         </section>
+
     </main>
     <footer>
         <section id="footer">
@@ -94,33 +99,38 @@
                     <span class="titulo-footer">
                         RECEBA NOVIDADES!
                     </span>
-                    
+
                     <p><img src="assets/img_home/email.png" alt=""> donutworrycookhappy@gmail.com </p>
                     <input type="text">
                     <span> <button class="botao"> INSCREVER-SE
-                    </button> </span>
-                    
+                        </button> </span>
+
                 </div>
                 <div id="div-loc"><iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.2352197303157!2d-46.66605918502226!3d-23.559994084683577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59d31a6216f5%3A0xe9a99d39c6039704!2sRua%20Haddock%20Lobo%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1683571558867!5m2!1spt-BR!2sbr"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.2352197303157!2d-46.66605918502226!3d-23.559994084683577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59d31a6216f5%3A0xe9a99d39c6039704!2sRua%20Haddock%20Lobo%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1683571558867!5m2!1spt-BR!2sbr"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
                 </div>
-                
+
             </div>
             <!-- coisas do footer-->
         </section>
     </footer>
+
+
+
 
 </body>
 
 </html>
 
 <script>
+
+    // QUIZ 
     var resultado = 0;
 
-    function resultado_quiz() {
+    async function resultado_quiz() {
         resultado = 0
 
         var quest1 = input_quest1.value.toLowerCase();
@@ -128,8 +138,20 @@
         var quest3 = input_quest3.value.toLowerCase();
         var quest4 = input_quest4.value.toLowerCase();
 
+        var respostasUsuario = {
+            pergunta1: quest1,
+            pergunta2: quest2,
+            pergunta3: quest3,
+            pergunta4: quest4
+        }
+
+        var comida = "";
+
+
+
         div_resultado_tex.innerHTML = "";
         div_resultado_img.innerHTML = "";
+
 
         if (quest1 == "salgada") {
             resultado += 5;
@@ -187,32 +209,77 @@
         }
 
         function etapaFinal() {
-            console.log("etapa final")
             if (resultado < 20) {
                 div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`;
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
             }
             if (resultado == 20) {
+                comida = 'Sete Monstrinhos';
                 div_resultado_tex.innerHTML = `Você combina com os Sete Monstrinhos da alimentação saúdavel !<div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/monstrinhos.svg" alt="">`
             }
             if (resultado == 25) {
+                comida = 'Croiassant-gosta';
                 div_resultado_tex.innerHTML = `Você combina com a Croiassant-gosta! <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/Lagosta.svg" alt="">`
             }
             if (resultado == 30) {
+                comida = 'Nequinha';
                 div_resultado_tex.innerHTML = `Você combina com o Nequinha!<div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/nequinha.svg" alt="">`
             }
             if (resultado == 35) {
+                comida = 'Ursinho Gordurento';
                 div_resultado_tex.innerHTML = `Você combina com o Ursinho Gordurento! <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/Ursinhogordurento.svg" alt="">`
             }
             if (resultado == 40) {
+                comida = 'Coelho bombado';
                 div_resultado_tex.innerHTML = `Você combina com o coelho bombado! <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/bombadinhos.svg" alt="">`
             }
         }
 
+        respostasUsuario['resultado'] = comida;
+        var resultadoFetch = await inserirResultadoQuiz(respostasUsuario.resultado);
+        var fkResultado = resultadoFetch.insertId;
+        var responseInserirRespostasQuiz = await inserirRespostasQuiz(respostasUsuario, fkResultado);
+
     }
+
+    // CARROSSEL 
+
+    var lista_fotos = ['<img src="assets/img_home/carrossel/1.svg">', '<img src="assets/img_home/carrossel/2.svg">', '<img src="assets/img_home/carrossel/3.svg">', '<img src="assets/img_home/carrossel/6.svg">', '<img src="assets/img_home/carrossel/5.svg">', '<img src="assets/img_home/carrossel/4.svg">']
+
+    var i = 0;
+
+
+    function carrossel() {
+        if (i == 0) {
+            div_carrossel.innerHTML = lista_fotos[0];
+            i++;
+        } else if (i == 1) {
+            div_carrossel.innerHTML = lista_fotos[1];
+            i++
+        } else if (i == 2) {
+            div_carrossel.innerHTML = lista_fotos[2];
+            i++;
+        } else if (i == 3) {
+            div_carrossel.innerHTML = lista_fotos[3];
+            i++
+            div_carrossel.innerHTML = lista_fotos[4];
+            i++;
+        } else if (i == 5) {
+            div_carrossel.innerHTML = lista_fotos[5];
+            i++;
+        }
+
+        if (i == 6) {
+            i = 0;
+        }
+    }
+
+    setInterval(function () {
+        carrossel();
+    }, 3000);
 </script>

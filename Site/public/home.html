@@ -8,17 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donut Worry, Cook Happy!</title>
     <link rel="stylesheet" href="assets/style.css">
+    <script src="./js/insights.js"></script>
 </head>
 
 <body>
     <header>
         <nav class="navbar">
-            <ul>
+        
                 <li> <a href="#receitas"><Button class="botao">Receitas</Button></a></li>
                 <li> <a href="#quiz"><button class="botao">Quiz</button></a> </li>
                 <li> <a href="#footer"> <button class="botao">Contato</button></a></li>
                 <li> <a href="dashboard/dashboard.html"> <button class="botao">Dashboard</button></a></li>
-            </ul>
+        
             <img src="assets/logo.svg" alt="">
         </nav>
 
@@ -69,7 +70,8 @@
                     <input placeholder="Ex.: restaurante" id="input_quest3" type="text" class="input-quest3">
                     • Você vai/gosta de academia?
                     <input placeholder="Ex.: não" id="input_quest4" type="text" class="input-quest4">
-                    <button class="botao" onclick="resultado_quiz()">Resultado</button>
+                    <a href="#div_resultado_img"><button class="botao" id="botao"
+                        onclick="resultado_quiz()">Resultado</button></a>
                 </div>
             </div>
             <div class="div-resultado">
@@ -121,9 +123,10 @@
 </html>
 
 <script>
-    var resultado = 0;
 
-    function resultado_quiz() {
+var resultado = 0;
+
+    async function resultado_quiz() {
         resultado = 0
 
         var quest1 = input_quest1.value.toLowerCase();
@@ -131,8 +134,20 @@
         var quest3 = input_quest3.value.toLowerCase();
         var quest4 = input_quest4.value.toLowerCase();
 
+        var respostasUsuario = {
+            pergunta1: quest1,
+            pergunta2: quest2,
+            pergunta3: quest3,
+            pergunta4: quest4
+        }
+
+        var comida = "";
+
+
+
         div_resultado_tex.innerHTML = "";
         div_resultado_img.innerHTML = "";
+
 
         if (quest1 == "salgada") {
             resultado += 5;
@@ -142,7 +157,7 @@
             etapa2();
         } else {
             console.log("etapa 1")
-            div_resultado_tex.innerHTML = `Escreva os dados corretamente :(<br><div class="div-dashboard2"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`;
+            div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <br><div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`;
             div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
         }
 
@@ -156,7 +171,7 @@
                 etapa3();
             } else {
                 console.log("etapa 2")
-                div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <br><div class="div-dashboard2"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`;
+                div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`;
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
             }
         }
@@ -170,7 +185,7 @@
                 etapa4();
             } else {
                 console.log("etapa 3")
-                div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <br><div class="div-dashboard2"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`;
+                div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`;
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
             }
         }
@@ -184,38 +199,52 @@
                 etapaFinal();
             } else {
                 console.log("etapa 4")
-                div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <br><div class="div-dashboard2"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`;
+                div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`;
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
             }
         }
 
         function etapaFinal() {
-            console.log("etapa final")
             if (resultado < 20) {
-                div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <br><div class="div-dashboard2"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`;
+                div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`;
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
             }
             if (resultado == 20) {
-                div_resultado_tex.innerHTML = `Você combina com os Sete Monstrinhos da alimentação saúdavel ! <br><div class="div-dashboard2"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`
-                div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/monstrinhos.svg" alt="">`
+                comida = 'Sete Monstrinhos';
+                div_resultado_tex.innerHTML = `Você combina com os Sete Monstrinhos da alimentação saúdavel !<div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`
+                div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/mostrinhos.svg" alt="">`
             }
             if (resultado == 25) {
-                div_resultado_tex.innerHTML = `Você combina com a Croiassant-gosta! <br><div class="div-dashboard2"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`
+                comida = 'Croiassant-gosta';
+                div_resultado_tex.innerHTML = `Você combina com a Croiassant-gosta! <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/Lagosta.svg" alt="">`
             }
             if (resultado == 30) {
-                div_resultado_tex.innerHTML = `Você combina com o Nequinha! <br><div class="div-dashboard2"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`
+                comida = 'Nequinha';
+                div_resultado_tex.innerHTML = `Você combina com o Nequinha!<div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/nequinha.svg" alt="">`
             }
             if (resultado == 35) {
-                div_resultado_tex.innerHTML = `Você combina com o Ursinho Gordurento! <br><div class="div-dashboard2"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`
+                comida = 'Ursinho Gordurento';
+                div_resultado_tex.innerHTML = `Você combina com o Ursinho Gordurento! <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/Ursinhogordurento.svg" alt="">`
             }
             if (resultado == 40) {
-                div_resultado_tex.innerHTML = `Você combina com o coelho bombado! <br><div class="div-dashboard2"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`
+                comida = 'Coelho bombado';
+                div_resultado_tex.innerHTML = `Você combina com o coelho bombado! <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/bombadinhos.svg" alt="">`
             }
         }
 
+        respostasUsuario['resultado'] = comida;
+        var resultadoFetch = await inserirResultadoQuiz(respostasUsuario.resultado);
+        var fkResultado = resultadoFetch.insertId;
+        var responseInserirRespostasQuiz = await inserirRespostasQuiz(respostasUsuario, fkResultado);
+        var fkQuiz = responseInserirRespostasQuiz.insertId;
+
+        await atualizarRespostasUsuario(sessionStorage.ID_USUARIO, fkResultado, fkQuiz);
     }
+
+
+
 </script>
