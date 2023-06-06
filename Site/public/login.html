@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+    </div>
     <div class="div-tela-login">
         <div class="div-icone">
             <img src="assets/Donut.svg" alt="">
@@ -47,7 +50,8 @@
         var senhaVar = input_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
-
+            mensagem_erro.innerHTML = `Preencha os campos corretamente! :(`;
+            cardErro.style.height="5vh"
             return false;
         }
 
@@ -78,6 +82,7 @@
                 });
 
             } else {
+
                 console.log("Houve um erro ao tentar realizar o login!");
                 resposta.text().then(texto => {
                     console.error(texto);

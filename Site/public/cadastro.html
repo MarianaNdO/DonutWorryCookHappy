@@ -12,16 +12,15 @@
 </head>
 
 <body>
+    <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+    </div>
     <div class="div-tela-login">
         <div class="div-icone">
             <img src="assets/Donut.svg" alt="">
         </div>
         <div class="div-cadastro">
-            <div class="alerta_erro">
-                <div class="card_erro" id="cardErro">
-                    <span id="mensagem_erro"></span>
-                </div>
-            </div>
+        
             <div>
                 NOME:<br>
                 <input id="input_nome" placeholder="nome">
@@ -73,9 +72,9 @@
 
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || sobrenomeVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Preencha os campos corretamente! :( )";
-
+            
+            mensagem_erro.innerHTML = `Preencha os campos corretamente! :(`;
+            cardErro.style.height="5vh"
             finalizarAguardar();
             return false;
         }
@@ -102,9 +101,10 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
+
 
                 mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                cardErro.style.height="5vh"
 
                 setTimeout(() => {
                     window.location = "login.html";

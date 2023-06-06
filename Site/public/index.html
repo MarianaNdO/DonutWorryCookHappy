@@ -92,7 +92,7 @@
                     <span class="titulo-footer"> INFORMAÇÕES </span> <BR>
                     <span class="texto-footer"> A Donut Worry, Cook Happy! está presente em diversas plataformas
                         digitais, acompanhe também nossas fofuras nas redes sociais.</span>
-                    <br><img src="assets/img_home/Social Icon.svg" alt="">
+                    <span class="imagem"> <a href="https://pt-br.facebook.com/"><img src="assets/img_home/Facebook.svg" alt=""></a> <a href="https://www.instagram.com"><img src="assets/img_home/Instagram.svg" alt=""></a> <a href="https://pt-br.facebook.com/"><img src="assets/img_home/Linkedin.svg" alt=""></a><a  href="https://twitter.com"><img src="assets/img_home/Twitter.svg" alt=""></a></span>
                 </div>
 
                 <div class="div-novidades">
@@ -101,8 +101,8 @@
                     </span>
 
                     <p><img src="assets/img_home/email.png" alt=""> donutworrycookhappy@gmail.com </p>
-                    <input type="text">
-                    <span> <button class="botao"> INSCREVER-SE
+                    <input type="text" id="input_inscrever">
+                    <span> <button class="botao" onclick="inscrever()"> INSCREVER-SE
                         </button> </span>
 
                 </div>
@@ -267,6 +267,7 @@
         } else if (i == 3) {
             div_carrossel.innerHTML = lista_fotos[3];
             i++
+        } else if (i == 4){
             div_carrossel.innerHTML = lista_fotos[4];
             i++;
         } else if (i == 5) {
@@ -282,4 +283,17 @@
     setInterval(function () {
         carrossel();
     }, 3000);
+
+ // ALERT INsCREVER-SE
+
+ function inscrever(){
+
+if (input_inscrever.value == ""){
+    alert("Preencha com um e-mail válido")
+} else{ 
+    alert("Você receberá nossas novidades por e-mail! Obrigado por apoiar a Donut Worry, Cook happy! :D")
+}
+
+input_inscrever.value = "";
+}
 </script>

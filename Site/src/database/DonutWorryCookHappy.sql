@@ -36,3 +36,5 @@ ALTER TABLE quiz ADD CONSTRAINT pergunta3 CHECK (pergunta3 in('restaurante', 'ca
 ALTER TABLE quiz ADD CONSTRAINT pergunta4 CHECK (pergunta4 in('sim', 'não'));
 
 SHOW TABLES;
+
+SELECT * FROM quiz;

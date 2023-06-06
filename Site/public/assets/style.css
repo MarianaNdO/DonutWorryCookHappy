@@ -367,9 +367,20 @@ li {
   margin: 5%;
 }
 
-.div-informacoes img {
-  width: 250px;
-  height: 250px;
+.div-informacoes .imagem {
+  margin-top: 5%;
+  width: 100%;
+  display: flex;
+}
+
+.div-informacoes a {
+  margin: 5%;
+}
+
+.imagem img{
+  width: 50px;
+  margin: 5%;
+  height: 50px;
 }
 
 .titulo-footer {
@@ -454,6 +465,27 @@ li {
 }
 
 /* LOGIN E CADASTRO */
+
+.card_erro{
+  position: absolute;
+  position: fixed;
+  height: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-radius:25px;
+  transition: 0.5s;
+}
+
+.card_erro #mensagem_erro{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;   
+  color: white;
+  border-radius: 25px;
+  width: 35%;
+}
 
 .div-icone {
   width: 100%;
@@ -591,14 +623,30 @@ li {
 .div-receita1 p,
 .div-receita2 p,
 .div-receita3 p {
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  display: flex;
   width: 400px;
-  margin-top: 0px;
+  margin-top: 10px;
 }
 
 .modo-de-preparo{
-  width: 33%;
+  width: 100%;
   color: #59423D;
-  font-size: 30px;
+  font-size: 35px;
+  font-family: Amatic SC;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+
+
+.modo-de-preparo-a{
+  width: 100%;
+  color: #CA9F7D;
+  font-size: 35px;
   font-family: Amatic SC;
   display: flex;
   justify-content: center;
@@ -637,8 +685,41 @@ li {
   flex-direction: column;
 }
 
+.div-ingredientes span {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10%;
+}
+
+.modo-de-preparo-coe{
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10%;
+  margin-bottom: 5%;
+  font-family: Amatic SC;
+  font-size: 35px;
+}
+
+
+.div-ingredientes-a span{
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10%;
+}
+
+.div-ingredientes-a {
+  margin: 10px;
+  width: 33%;
+  flex-direction: column;
+  display: flex;
+}
+
 .div-ingredientes p {
-  margin-top: 10px;
+  margin-top: 8px;
+}
+
+.div-ingredientes-a p {
+  margin-top: 8px;
 }
 
 /* RECEITAS DOCE */
