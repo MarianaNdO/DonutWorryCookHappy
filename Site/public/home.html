@@ -157,7 +157,7 @@ var resultado = 0;
             etapa2();
         } else {
             console.log("etapa 1")
-            div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <br><div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`;
+            div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <br><div class="div-dashboard"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`;
             div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
         }
 
@@ -171,7 +171,7 @@ var resultado = 0;
                 etapa3();
             } else {
                 console.log("etapa 2")
-                div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`;
+                div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <div class="div-dashboard"><a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`;
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
             }
         }
@@ -185,7 +185,7 @@ var resultado = 0;
                 etapa4();
             } else {
                 console.log("etapa 3")
-                div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`;
+                div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <div class="div-dashboard"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`;
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
             }
         }
@@ -199,39 +199,39 @@ var resultado = 0;
                 etapaFinal();
             } else {
                 console.log("etapa 4")
-                div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`;
+                div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <div class="div-dashboard"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`;
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
             }
         }
 
         function etapaFinal() {
             if (resultado < 20) {
-                div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`;
+                div_resultado_tex.innerHTML = `Escreva os dados corretamente :( <div class="div-dashboard"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`;
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/triste.svg" alt="">`
             }
             if (resultado == 20) {
                 comida = 'Sete Monstrinhos';
-                div_resultado_tex.innerHTML = `Você combina com os Sete Monstrinhos da alimentação saúdavel !<div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`
+                div_resultado_tex.innerHTML = `Você combina com os Sete Monstrinhos da alimentação saúdavel !<div class="div-dashboard"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/mostrinhos.svg" alt="">`
             }
             if (resultado == 25) {
                 comida = 'Croiassant-gosta';
-                div_resultado_tex.innerHTML = `Você combina com a Croiassant-gosta! <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`
+                div_resultado_tex.innerHTML = `Você combina com a Croiassant-gosta! <div class="div-dashboard"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/Lagosta.svg" alt="">`
             }
             if (resultado == 30) {
                 comida = 'Nequinha';
-                div_resultado_tex.innerHTML = `Você combina com o Nequinha!<div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`
+                div_resultado_tex.innerHTML = `Você combina com o Nequinha!<div class="div-dashboard"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/nequinha.svg" alt="">`
             }
             if (resultado == 35) {
                 comida = 'Ursinho Gordurento';
-                div_resultado_tex.innerHTML = `Você combina com o Ursinho Gordurento! <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`
+                div_resultado_tex.innerHTML = `Você combina com o Ursinho Gordurento! <div class="div-dashboard"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/Ursinhogordurento.svg" alt="">`
             }
             if (resultado == 40) {
                 comida = 'Coelho bombado';
-                div_resultado_tex.innerHTML = `Você combina com o coelho bombado! <div class="div-dashboard"> <a href="login.html">Faça Login para ter acesso aos Insights! </a> </div>`
+                div_resultado_tex.innerHTML = `Você combina com o coelho bombado! <div class="div-dashboard"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>`
                 div_resultado_img.innerHTML = `<img src="assets/img_home/quiz/bombadinhos.svg" alt="">`
             }
         }

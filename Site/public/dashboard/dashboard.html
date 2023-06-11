@@ -1,112 +1,193 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <link rel="shortcut icon" href=".. /assets/icon.svg" type="image/x-icon">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="shortcut icon" href=".. /assets/icon.svg" type="image/x-icon" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - Donut Worry, Cook Happy!</title>
-    <link rel="stylesheet" href="./dashboards.css">
+    <link rel="stylesheet" href="./dashboards.css" />
     <script src="../js/insights.js"></script>
     <script src="../js/funcoes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="conteudo">
-        <div class="parte-um">
-            <div class="header">
-                <h1>
-                    Olá,
-                    <span id="b_usuario">nomeUsuario</span>,
-                    você combina com
-                    <span id="b_resultado_usuario"></span>
-                </h1>
-            </div>
-            <div class="grafico-bar">
-                <div class="titulo">
-                    <h2>OS USUÁRIOS PREFEREM:</h2>
-                </div>
-                <div class="grafico">
-                    <div>
-                        <canvas id="myChart" style="position: relative; height:40vh; width:60vw"></canvas>
-                    </div>
-                </div>
-                <div class="botao-voltar">
-                    <a href="../home.html">
-                        <button class="botao" id="botao">VOLTAR</button>
-                    </a>
-                </div>
-            </div>
+      <div class="parte-um">
+        <div class="header">
+          <h1>
+            Olá,
+            <span id="b_usuario">nomeUsuario</span>, você combina com
+            <b><span id="b_resultado_usuario"></span></b>
+          </h1>
         </div>
-        <div class="parte-dois">
-            <div class="card-descricao">
-                <div class="card">
-                    A maioria dos usuarios combinam com o <span id="b_media_escolha_usuarios"></span>
-                </div>
+        <div class="grafico-bar">
+          <div class="titulo">
+            <h2>OS USUÁRIOS PREFEREM:</h2>
+          </div>
+          <div class="grafico">
+            <div>
+              <canvas
+                id="myChart"
+                style="position: relative; height: 40vh; width: 60vw"
+              ></canvas>
             </div>
-            <div class="grafico-pizza">
-                <div class="chart-container" style="position: relative; height:40vh; width:30vw; text-align:">
-                    <canvas id="newChart"></canvas>
-                </div>
-
-            </div>
+          </div>
+          <div class="botao-voltar">
+            <a href="../home.html">
+              <button class="botao" id="botao">VOLTAR</button>
+            </a>
+          </div>
         </div>
+      </div>
+      <div class="parte-dois">
+        <div class="card-descricao">
+          <div class="card">
+            A maioria dos usuarios combinam com o
+            <b><span id="b_media_escolha_usuarios"></span></b>
+          </div>
+        </div>
+        <div class="grafico-pizza">
+          <div
+            class="chart-container"
+            style="position: relative; height: 40vh; width: 30vw; text-align: "
+          >
+            <canvas id="newChart"></canvas>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
 
 <script>
-    var nomeUsuario = sessionStorage.NOME_USUARIO;
-    var fkResultado = sessionStorage
+  var nomeUsuario = sessionStorage.NOME_USUARIO;
+  var fkResultado = sessionStorage;
+  var idUsuario = sessionStorage.ID_USUARIO;
+  var labelsRespostaPerguntas = [];
+  var labelsCountRespostasPerguntas = [];
+  var labelsRepostas = [];
+  var labelsCountRespostas = [];
+  var backgroundColorsChartPizza = [];
 
-    var nomeUsuarioSpan = document.getElementById("b_usuario");
-
-    b_usuario.innerHTML = nomeUsuario;
-
-    const ctx = document.getElementById('myChart');
-
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
+  // obter o resultado do usuário
+  fetch("/resultados/resultado/" + idUsuario, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((resposta) => {
+      if (resposta.ok) {
+        resposta.json().then((json) => {
+          var resultadoUsuario = document.getElementById("b_resultado_usuario");
+          resultadoUsuario.innerHTML = json[0].resultado;
+        });
+      }
+    })
+    .catch(function (erro) {
+      console.log(erro);
     });
 
-    const chart = document.getElementById('newChart');
+  // obter o resultado mais comum para colocar no card acima na direita
+  fetch("/resultados/comum", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((resposta) => {
+      resposta.json().then((json) => {
+        var escolhaUsuarios = document.getElementById(
+          "b_media_escolha_usuarios"
+        );
+        escolhaUsuarios.innerHTML = json[0].resultado;
+      });
+    })
+    .catch(function (erro) {
+      console.log(erro);
+    });
 
-    new Chart(chart, {
-        type: 'pie',
-        data: {
-            labels: [
-                'Red',
-                'Blue',
-                'Yellow'
-            ],
-            datasets: [{
-                label: 'My First Dataset',
-                data: [300, 50, 100],
-                backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)'
-                ],
-                hoverOffset: 4
-            }]
+  // obter resultados para colocar no gŕafico da esquerda
+  fetch("/resultados/perguntas", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((resposta) => {
+      resposta.json().then((json) => {
+        for (var i = 0; i < json.length; i++) {
+          labelsRespostaPerguntas.push(json[i].pergunta);
+          labelsCountRespostasPerguntas.push(Number(json[i].count_pergunta));
         }
-    },);
+
+        const ctx = document.getElementById("myChart");
+        new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: labelsRespostaPerguntas,
+            datasets: [
+              {
+                label: "Quantidade de Respostas no Quiz",
+                data: labelsCountRespostasPerguntas,
+                borderWidth: 1,
+                backgroundColor: ["#D7A072", "#F2F4DC"],
+                barThickness:
+                  labelsRespostaPerguntas.length % 2 === 0 ? "flex" : undefined,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      });
+    })
+    .catch(function (erro) {
+      console.log(erro);
+    });
+
+  // Função para gerar um valor aleatório entre 0 e 255 que será usado nas cores do gráfico de pizza
+  function getRandomValue() {
+    return Math.floor(Math.random() * 256);
+  }
+
+  // obter resultados distintos para colocar no gráfico da direita
+  fetch("/resultados", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  }).then((resposta) => {
+    resposta.json().then((json) => {
+      for (var i = 0; i < json.length; i++) {
+        labelsRepostas.push(json[i].resultado);
+        labelsCountRespostas.push(json[i].quantidade_resultados);
+        backgroundColorsChartPizza.push(
+          `rgb(${getRandomValue()}, ${getRandomValue()}, ${getRandomValue()})`
+        );
+      }
+
+      const chart = document.getElementById("newChart");
+
+      new Chart(chart, {
+        type: "pie",
+        data: {
+          labels: labelsRepostas,
+          datasets: [
+            {
+              label: "My First Dataset",
+              data: labelsCountRespostas,
+              backgroundColor: backgroundColorsChartPizza,
+              hoverOffset: 4,
+            },
+          ],
+        },
+      });
+    });
+  });
+
+  var nomeUsuarioSpan = document.getElementById("b_usuario");
+
+  b_usuario.innerHTML = nomeUsuario;
 </script>

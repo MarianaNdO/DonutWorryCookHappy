@@ -88,9 +88,13 @@ function cadastrar(req, res) {
   } else {
     // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
     usuarioModel
-      .cadastrar(email, senha, nome, sobrenome)
+      .cadastrar(email, senha)
       .then(function (resultado) {
-        res.json(resultado);
+        var jsonResultado = JSON.parse(JSON.stringify(resultado));
+        
+        return usuarioModel.atualizarUsuario(nome, sobrenome, jsonResultado.insertId).then((resultadoAtualizarUsuario) => {
+          res.json({resultadoCadastro: resultado, resultadoAtualizarUsuario});
+        })
       })
       .catch(function (erro) {
         console.log(erro);
