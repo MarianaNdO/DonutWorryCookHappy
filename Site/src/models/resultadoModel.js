@@ -53,9 +53,10 @@ function obterResultadosPerguntas() {
 
 function obterResultadosDistintos() {
   var instrucao = `
-    SELECT resultado, COUNT(*) AS quantidade_resultados
-    FROM resultado
-    GROUP BY resultado;
+  SELECT resultado, COUNT(*) AS quantidade_resultados
+  FROM resultado
+  WHERE NULLIF(resultado, '') IS NOT NULL
+  GROUP BY resultado;
   `;
   return database.executar(instrucao);
 }

@@ -100,4 +100,5 @@ GROUP BY pergunta;
 
 SELECT resultado, COUNT(*) AS quantidade_resultados
 FROM resultado
+WHERE resultado IS NOT NULL
 GROUP BY resultado;

@@ -17,7 +17,7 @@
       <div class="parte-um">
         <div class="header">
           <h1>
-            Olá,
+            Olá
             <span id="b_usuario">nomeUsuario</span>, você combina com
             <b><span id="b_resultado_usuario"></span></b>
           </h1>
@@ -51,7 +51,7 @@
         <div class="grafico-pizza">
           <div
             class="chart-container"
-            style="position: relative; height: 40vh; width: 30vw; text-align: "
+            style="position: relative; height: 40vh; width: 30vw;"
           >
             <canvas id="newChart"></canvas>
           </div>
@@ -136,6 +136,11 @@
             ],
           },
           options: {
+            plugins: {
+              legend: {
+                display: false,
+              }
+            },
             scales: {
               y: {
                 beginAtZero: true,
@@ -176,13 +181,20 @@
           labels: labelsRepostas,
           datasets: [
             {
-              label: "My First Dataset",
+              label: "Resultado",
               data: labelsCountRespostas,
               backgroundColor: backgroundColorsChartPizza,
               hoverOffset: 4,
             },
           ],
         },
+        options: {
+            plugins: {
+              label: {
+                display: false,
+              }
+            }
+          },
       });
     });
   });
@@ -190,4 +202,6 @@
   var nomeUsuarioSpan = document.getElementById("b_usuario");
 
   b_usuario.innerHTML = nomeUsuario;
+
+
 </script>

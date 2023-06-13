@@ -78,14 +78,14 @@ li {
 }
 
 .botao:hover {
-  transition: 0.3s all;
+  transition: 0.6s all;
   background-color: white;
   color: #59423d;
 }
 
 .botao:active {
   position: relative;
-  top: 1px;
+  top: 2px;
 }
 
 .div-imagens {

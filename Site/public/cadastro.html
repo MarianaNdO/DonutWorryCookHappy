@@ -113,6 +113,8 @@
                 limparFormulario();
                 finalizarAguardar();
             } else {
+                mensagem_erro.innerHTML = "Houve um erro ao tentar realizar o cadastro!";
+                cardErro.style.height="5vh"
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
