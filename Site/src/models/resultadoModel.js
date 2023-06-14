@@ -25,11 +25,12 @@ function obterResultadoPeloId(idUsuario) {
 
 function obterResultadoMaisComun() {
   var instrucao = `
-    SELECT resultado, COUNT(*) AS count
-    FROM resultado
-    GROUP BY resultado
-    ORDER BY count DESC
-    LIMIT 1;
+  SELECT resultado, COUNT(*) AS count
+  FROM resultado
+  WHERE NULLIF(resultado, '') IS NOT NULL
+  GROUP BY resultado
+  ORDER BY count DESC
+  LIMIT 1;
   `;
   return database.executar(instrucao);
 }

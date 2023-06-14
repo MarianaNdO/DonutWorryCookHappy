@@ -11,13 +11,17 @@
 </head>
 
 <body>
+    <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+    </div>
    
     <nav class="navbar">
         
-        <li> <a href="#receitas"><button class="botao">Receitas</Button></a></li>
-        <li> <a href="#quiz"><button class="botao">Quiz</button></a> </li>
+        <li> <a href="../home.html"><button class="botao">Home</button></a> </li>
+        <li> <a href="../dashboard/dashboard.html"><button class="botao">Dashboard</Button></a></li>
         <li> <a href="#footer"> <button class="botao">Contato</button></a></li>
-        <li> <a href="../dashboard/dashboard.html"> <button class="botao">Dashboard</button></a></li>
+        <li> <a onclick="limparSessao()"><button class="botao">Sair</button>
+        </a></li>
 
     <img src="../assets/logo.svg" alt="">
 </nav>
@@ -169,5 +173,22 @@ if (input_inscrever.value == ""){
 
 input_inscrever.value = "";
 }
+
+// limpar sessao
+function limparSessao() {
+        mensagem_erro.innerHTML = "Saindo...";
+        cardErro.style.height = "5vh"
+        fecharModal()
+        sessionStorage.clear();
+    }
+
+    function fecharModal() {
+        setTimeout(() => {
+            mensagem_erro.style.display = "none";
+        }, "1700");
+        setTimeout(() => {
+            window.location = "../index.html";
+        }, "2000");
+    }
 
 </script>

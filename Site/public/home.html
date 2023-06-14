@@ -12,15 +12,18 @@
 </head>
 
 <body>
+    <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+    </div>
     <header>
         <nav class="navbar">
-        
-                <li> <a href="#receitas"><button class="botao">Receitas</Button></a></li>
-                <li> <a href="#quiz"><button class="botao">Quiz</button></a> </li>
-                <li> <a href="#footer"> <button class="botao">Contato</button></a></li>
-                <li> <a href="index.html" onclick="limparSessao()"><button class="botao">Sair</button>
-                  </a></li>
-        
+
+            <li> <a href="#receitas"><button class="botao">Receitas</Button></a></li>
+            <li> <a href="#quiz"><button class="botao">Quiz</button></a> </li>
+            <li> <a href="#footer"> <button class="botao">Contato</button></a></li>
+            <li> <a onclick="limparSessao()"><button class="botao">Sair</button>
+                </a></li>
+
             <img src="assets/logo.svg" alt="">
         </nav>
 
@@ -55,37 +58,37 @@
             </div>
 
         </section>
-    </section>
-    <section id="quiz">
-        <!-- quiz a partir daqui-->
-        <div class="div-quiz">
-            <span class="titulo-quiz"> QUIZ </span> <span class="pergunta-quiz">Qual comida fofinha mais combina com
-                você?</span>
-            <div class="div-questionario">
-                <div class="div-perguntas">
-                    • Você prefere comida salgada ou doce?<br>
-                    <input placeholder="Ex.: salgada" id="input_quest1" type="text" class="input-quest1">
-                    • Animais selvagens ou domesticos?<br>
-                    <input placeholder="Ex.: selvagens" id="input_quest2" type="text" class="input-quest2">
-                    • Restaurante ou cafeteria?
-                    <input placeholder="Ex.: restaurante" id="input_quest3" type="text" class="input-quest3">
-                    • Você vai/gosta de academia?
-                    <input placeholder="Ex.: não" id="input_quest4" type="text" class="input-quest4">
-                    <a href="#div_resultado_img"><button class="botao" id="botao"
-                        onclick="resultado_quiz()">Resultado</button></a>
+        </section>
+        <section id="quiz">
+            <!-- quiz a partir daqui-->
+            <div class="div-quiz">
+                <span class="titulo-quiz"> QUIZ </span> <span class="pergunta-quiz">Qual comida fofinha mais combina com
+                    você?</span>
+                <div class="div-questionario">
+                    <div class="div-perguntas">
+                        • Você prefere comida salgada ou doce?<br>
+                        <input placeholder="Ex.: salgada" id="input_quest1" type="text" class="input-quest1">
+                        • Animais selvagens ou domesticos?<br>
+                        <input placeholder="Ex.: selvagens" id="input_quest2" type="text" class="input-quest2">
+                        • Restaurante ou cafeteria?
+                        <input placeholder="Ex.: restaurante" id="input_quest3" type="text" class="input-quest3">
+                        • Você vai/gosta de academia?
+                        <input placeholder="Ex.: não" id="input_quest4" type="text" class="input-quest4">
+                        <a href="#div_resultado_img"><button class="botao" id="botao"
+                                onclick="resultado_quiz()">Resultado</button></a>
+                    </div>
                 </div>
-            </div>
-            <div class="div-resultado">
-                <div id="div_resultado_tex" class="resultado-texto">
-                    <p> O Resultado do seu quiz aparecerá aqui. Responda já! </p>
-                    <div class="div-dashboard2"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>
+                <div class="div-resultado">
+                    <div id="div_resultado_tex" class="resultado-texto">
+                        <p> O Resultado do seu quiz aparecerá aqui. Responda já! </p>
+                        <div class="div-dashboard2"> <a href="dashboard/dashboard.html"> Veja os Insights! </a> </div>
+                    </div>
+                    <div id="div_resultado_img" class="resultado-imagem">
+                        <img src="assets/img_home/quiz/gatos.svg" alt="">
+                    </div>
                 </div>
-                <div id="div_resultado_img" class="resultado-imagem">
-                    <img src="assets/img_home/quiz/gatos.svg" alt="">
-                </div>
-        </div>
 
-    </section>
+        </section>
     </main>
     <footer>
         <section id="footer">
@@ -94,18 +97,22 @@
                     <span class="titulo-footer"> INFORMAÇÕES </span> <BR>
                     <span class="texto-footer"> A Donut Worry, Cook Happy! está presente em diversas plataformas
                         digitais, acompanhe também nossas fofuras nas redes sociais.</span>
-                    <span class="imagem"> <a href="https://pt-br.facebook.com/"><img src="assets/img_home/Facebook.svg" alt=""></a> <a href="https://www.instagram.com"><img src="assets/img_home/Instagram.svg" alt=""></a> <a href="https://pt-br.facebook.com/"><img src="assets/img_home/Linkedin.svg" alt=""></a><a  href="https://twitter.com"><img src="assets/img_home/Twitter.svg" alt=""></a></span>
+                    <span class="imagem"> <a href="https://pt-br.facebook.com/"><img src="assets/img_home/Facebook.svg"
+                                alt=""></a> <a href="https://www.instagram.com"><img src="assets/img_home/Instagram.svg"
+                                alt=""></a> <a href="https://pt-br.facebook.com/"><img
+                                src="assets/img_home/Linkedin.svg" alt=""></a><a href="https://twitter.com"><img
+                                src="assets/img_home/Twitter.svg" alt=""></a></span>
                 </div>
-            
+
                 <div class="div-novidades">
                     <span class="titulo-footer">
                         RECEBA NOVIDADES!
                     </span>
                     <!-- <img src="assets/img_home/loc.png" alt=""> R. Haddock Lobo, 45 -->
-                     <p><img src="assets/img_home/email.png" alt="">  donutworrycookhappy@gmail.com </p>                 
-                     <input type="text" id="input_inscrever">
+                    <p><img src="assets/img_home/email.png" alt=""> donutworrycookhappy@gmail.com </p>
+                    <input type="text" id="input_inscrever">
                     <span> <button class="botao" onclick="inscrever()"> INSCREVER-SE
-                </button> </span>
+                        </button> </span>
 
                 </div>
                 <div id="div-loc"><iframe
@@ -115,17 +122,18 @@
 
                 </div>
             </div>
-            
+
             <!-- coisas do footer-->
         </section>
     </footer>
 
 </body>
+
 </html>
 
 <script>
 
-var resultado = 0;
+    var resultado = 0;
 
     async function resultado_quiz() {
         resultado = 0
@@ -245,26 +253,38 @@ var resultado = 0;
 
         await atualizarRespostasUsuario(sessionStorage.ID_USUARIO, fkResultado, fkQuiz);
     }
-// ALERT INsCREVER-SE
+    // ALERT INsCREVER-SE
 
-    function inscrever(){
+    function inscrever() {
 
-        if (input_inscrever.value == ""){
+        if (input_inscrever.value == "") {
             alert("Preencha com um e-mail válido")
-        } else{ 
+        } else {
             alert("Você receberá nossas novidades por e-mail! Obrigado por apoiar a Donut Worry, Cook happy! :D")
         }
-        
+
         input_inscrever.value = "";
     }
 
     // limpar session storage
 
-      // limpar o session storage
+    function limparSessao() {
+        mensagem_erro.innerHTML = "Saindo...";
+        cardErro.style.height = "5vh"
+        fecharModal()
+        sessionStorage.clear();
+    }
 
-  function limparSessao(){
-    sessionStorage.clear();
-  }
+    function fecharModal() {
+        setTimeout(() => {
+            mensagem_erro.style.display = "none";
+        }, "1700");
+        setTimeout(() => {
+            window.location = "index.html";
+        }, "2000");
+    }
+
+
 
 
 </script>

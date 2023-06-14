@@ -121,7 +121,7 @@ body {
 
 .conteudo .parte-dois .grafico-pizza {
  display: flex;
- width: 80%;
+ justify-content: center;
  align-items: center;
 }
 

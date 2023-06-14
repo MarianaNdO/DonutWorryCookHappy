@@ -2,6 +2,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Fredoka%20One");
 
+::-webkit-scrollbar{
+  width: 10px;
+  background-color: #fff;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #d49393;
+  border-radius: 30px;
+}
+
+
 body {
   font-family: "Quicksand", "Fredoka One", monospace;
   padding: 0;
